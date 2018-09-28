@@ -9,7 +9,7 @@ const packageModel = require('../models/package')
 router.get('/', function(req, res, next) {
   packageModel.getPackages()
     .then((pkgs) => {
-      res.render('index', { title: pkgs[0].name });
+    res.render('index', { title: 'packages', pkgs });
     })
 });
 

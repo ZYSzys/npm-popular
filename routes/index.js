@@ -3,8 +3,14 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'express' });
-})
+const packageModel = require('../models/package')
 
-module.exports = router
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  packageModel.getPackages()
+    .then((pkgs) => {
+    res.render('index', { title: 'npm-popular', pkgs });
+    })
+});
+
+module.exports = router;
