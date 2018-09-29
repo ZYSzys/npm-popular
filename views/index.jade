@@ -6,3 +6,5 @@ block content
   each pkg in pkgs
     p Welcome to =>
       a(href= 'https://'+pkg.url) #{pkg.name}
+      a(href= pkg.homepage) #{pkg.name}
+      a(href= pkg.github) #{pkg.name}
