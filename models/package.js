@@ -1,11 +1,8 @@
-'use strict'
+'use strict';
 
-// const Package = require('../lib/mongo').Package
-const getPkgs = require('npm-popular-modules')
+const Package = require('../lib/mongo').Package;
 
 module.exports = {
   // 获取所有 packages
-  getPackages: async () => {
-    return await getPkgs()
-  }
-}
+  getPackages: () => Package.find({})
+};
