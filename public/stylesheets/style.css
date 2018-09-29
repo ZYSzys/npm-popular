@@ -3,6 +3,34 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1{
+  padding:0px;
+  margin:0px;
+}
 a {
+  padding:5px 10px;
   color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover{
+  background-color:#00B7FF;
+  color:#fff;
+  border-radius:5px;
+}
+
+.container{
+  display: -webkit-flex; /* Safari */
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.module-list{
+  flex-basis:25%;
+}
+
+.module-detail{
+  flex-basis:70%;
 }
