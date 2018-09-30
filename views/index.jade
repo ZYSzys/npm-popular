@@ -4,7 +4,7 @@ block content
   h1= title
 
   each pkg in pkgs
-    p Welcome to =>
-      a(href= 'https://'+pkg.url) #{pkg.name}
-      a(href= pkg.homepage) #{pkg.name}
-      a(href= pkg.github) #{pkg.name}
+    p
+      a(class='left', href='https://'+pkg.url) #{pkg.name}
+      a(class='middle', href=pkg.homepage) #{pkg.name}
+      a(class='right', href=pkg.github) #{pkg.name}
