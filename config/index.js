@@ -7,5 +7,5 @@ module.exports = {
     key: 'npm-popular',
     maxAge: 2592000000
   },
-  mongodb: 'mongodb://localhost:27017/npm-popular'
+  mongodb: 'mongodb://zyszys:zys123@ds119323.mlab.com:19323/npm-popular' // mongodb://localhost:27017/npm-popular'
 };
