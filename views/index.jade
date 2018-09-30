@@ -1,10 +1,16 @@
 extends layout
 
 block content
-  h1= title
+  div.container
+   div.module-list
+    h1= title
+    h2 module list
+      each pkg in pkgs
+        p
+          a(href= 'https://' + pkg.url) #{pkg.name}
+          a(href= pkg.homepage) #{pkg.name}
+          a(href= pkg.github) #{pkg.name}
+   div.module-detail no module be picked
 
-  each pkg in pkgs
-    p Welcome to =>
-      a(href= 'https://'+pkg.url) #{pkg.name}
-      a(href= pkg.homepage) #{pkg.name}
-      a(href= pkg.github) #{pkg.name}
+  script(type="text/javascript", src="/javascript/index.js")
+
