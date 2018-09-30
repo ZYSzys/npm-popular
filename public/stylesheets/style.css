@@ -4,27 +4,45 @@ body {
 }
 
 h1 {
-  text-align: center;
-  padding-bottom: 20px;
+  margin: 0px;
+  padding: 0px;
+}
+
+p{
+  margin-left: 60px;
 }
 
 a {
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: inline-block;
   color: #00B7FF;
+  text-align: center;
+}
+
+
+p i{
+  font-size: 50px;
+  width: 31%;
+  text-align:center;
+}
+a:hover{
+  background: #00B7FF;
+  color: #fff;
 }
 
 .left {
-  float: left;
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 
 .right {
-  float: right;
   width: 30%;
   height: 100%;
 }
 
 .middle {
-  overflow: hidden;
+  width: 30%;
   height: 100%;
 }
