@@ -1,6 +1,7 @@
 extends layout
 
 block content
+<<<<<<< HEAD
   link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.3.1/css/all.css",integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU", crossorigin="anonymous")
   link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.3.1/css/all.css", integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU", crossorigin="anonymous")
   link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.3.1/css/all.css", integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU", crossorigin="anonymous")
@@ -14,3 +15,28 @@ block content
       a(class='left', href='https://'+pkg.url) #{pkg.name}
       a(class='middle', href=pkg.homepage) #{pkg.name}
       a(class='right', href=pkg.github) #{pkg.name}
+=======
+  div.container
+   div.module-list
+    h1= title
+    h2 module list
+      each pkg in pkgs
+        p
+          a(href= 'https://' + pkg.url) #{pkg.name}
+          a(href= pkg.homepage) #{pkg.name}
+          a(href= pkg.github) #{pkg.name}
+   div.module-detail no module bu picked
+
+  script.
+    let moduleList;
+    let moduleName;
+    let moduleDetail;
+
+    moduleName = document.getElementsByTagName('a');
+    moduleList = document.getElementsByClassName('module-list')[0];
+    moduleDetail = document.getElementsByClassName('module-detail')[0];
+    moduleList.addEventListener('click', function(event){
+        event.preventDefault();
+        moduleDetail.innerHTML = event.target.innerHTML;
+    });
+>>>>>>> 70aa54c23b29f2e5b8cd73c4e9f3e03b9227eea2
