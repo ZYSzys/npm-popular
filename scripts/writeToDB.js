@@ -1,8 +1,9 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const { promisify } = require('util');
-const Package = require('../lib/mongo').Package;
+const { Package } = require('../lib/mongo');
 
 const readAsync = promisify(fs.readFile);
 
@@ -10,8 +11,8 @@ process.on('exit', () => {
   console.log('Great ! All data above are saved.');
 });
 
-const writeToDB = async () => {
-  const content = await readAsync('Popular');
+const writeToDB = async (path) => {
+  const content = await readAsync(path);
   const list = await strToList(content);
   const res = await savePkgs(list);
   return res;
@@ -46,7 +47,7 @@ const separate = (str, symbol) => {
 };
 
 (async () => {
-  const res = await writeToDB();
+  const res = await writeToDB(path.resolve(__dirname, './Popular'));
   console.log(res);
   process.exit();
 })();
