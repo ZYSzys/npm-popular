@@ -1,38 +1,52 @@
 'use strict';
 
 const fs = require('fs');
+const { promisify } = require('util');
 const Package = require('../lib/mongo').Package;
 
-fs.readFile('Popular', (err, res) => {
-  if (err) {
-    console.log(err);
-  }
-  const list = strToList(res);
+const readAsync = promisify(fs.readFile);
 
-  let name, url, homepage, github;
-  for (const str of list) {
-    [name, url, homepage, github] = [...separate(str, ' => ')];
-    //console.log(name, url, homepage, github);
-    const pkg = new Package({ name, url, homepage, github });
-    pkg.save((err, pkg) => {
-      if (err) return console.error(err);
-      console.log(`${pkg.name} is saved !`);
-    });
-  }
+process.on('exit', () => {
+  console.log('Great ! All data above are saved.');
 });
 
-const strToList = buf => {
+const writeToDB = async () => {
+  const content = await readAsync('Popular');
+  const list = await strToList(content);
+  const res = await savePkgs(list);
+  return res;
+};
+
+const strToList = async buf => {
   return buf
     .toString()
     .split('\n')
     .slice(2, -3);
 };
 
+const savePkg = async (name, url, homepage, github) => {
+  let pkg = new Package({ name, url, homepage, github });
+  pkg = await pkg.save();
+  return pkg.name;
+};
+
+const savePkgs = async list => {
+  const pkgs = [];
+  let name, url, homepage, github;
+  for (const str of list) {
+    [name, url, homepage, github] = [...separate(str, ' => ')];
+    const pkg = await savePkg(name, url, homepage, github);
+    pkgs.push(pkg);
+  }
+  return pkgs;
+};
+
 const separate = (str, symbol) => {
   return str.split(symbol);
 };
 
-process.on('exit', () => {
-  console.log('Great ! All data saved.');
+(async () => {
+  const res = await writeToDB();
+  console.log(res);
   process.exit();
-});
+})();
