@@ -1,8 +1,30 @@
 body {
-  padding: 40px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 20px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 a {
   color: #00B7FF;
+}
+
+.left {
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+
+.right {
+  float: right;
+  width: 30%;
+  height: 100%;
+}
+
+.middle {
+  overflow: hidden;
+  height: 100%;
 }
