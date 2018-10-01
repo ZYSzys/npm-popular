@@ -13,11 +13,10 @@ p{
 }
 
 h1{
-  padding:0px;
-  margin:0px;
+  padding: 0px;
+  margin: 0px;
 }
 a {
-<<<<<<< HEAD
   border-radius: 5px;
   padding: 5px 10px;
   text-decoration: none;
@@ -50,31 +49,7 @@ a:hover{
 .middle {
   width: 30%;
   height: 100%;
-=======
   padding:5px 10px;
   color: #00B7FF;
   text-decoration: none;
-}
-
-a:hover{
-  background-color:#00B7FF;
-  color:#fff;
-  border-radius:5px;
-}
-
-.container{
-  display: -webkit-flex; /* Safari */
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:flex-start;
-}
-
-.module-list{
-  flex-basis:25%;
-}
-
-.module-detail{
-  flex-basis:70%;
->>>>>>> 70aa54c23b29f2e5b8cd73c4e9f3e03b9227eea2
 }
