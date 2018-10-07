@@ -1,16 +1,18 @@
 body {
-  padding: 20px;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 10px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 h1 {
   margin: 0px;
   padding: 20px 0px;
   text-align: center;
+  color: #B22222;
+  font-size: 200%;
 }
 
-p{
-  margin-left: 60px;
+p {
+  text-align: center;
 }
 
 a {
@@ -23,12 +25,13 @@ a {
 }
 
 
-p i{
+p i {
   font-size: 50px;
   width: 31%;
-  text-align:center;
+  text-align: center;
 }
-a:hover{
+
+a:hover {
   background: #00B7FF;
   color: #fff;
 }
@@ -46,7 +49,7 @@ a:hover{
 .middle {
   width: 30%;
   height: 100%;
-  padding:5px 10px;
+  padding: 5px 10px;
   color: #00B7FF;
   text-decoration: none;
 }
