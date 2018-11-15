@@ -11,7 +11,7 @@ process.on('exit', () => {
   console.log('Great ! All data above are saved.');
 });
 
-const writeToDB = async (path) => {
+const writeToDB = async path => {
   const content = await readAsync(path);
   const list = await strToList(content);
   const res = await savePkgs(list);
@@ -47,6 +47,7 @@ const separate = (str, symbol) => {
 };
 
 (async () => {
+  await Package.deleteMany();
   const res = await writeToDB(path.resolve(__dirname, './Popular'));
   console.log(res);
   process.exit();
